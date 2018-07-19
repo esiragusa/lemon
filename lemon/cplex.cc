@@ -473,6 +473,18 @@ namespace lemon {
     _prob = CPXcreateprob(cplexEnv(), &status, "Cplex problem");
   }
 
+  void CplexBase::timeout(double seconds) {
+    CPXsetdblparam(cplexEnv(), CPX_PARAM_TILIM, seconds);
+  }
+
+  void CplexBase::solutionsLimit(int num) {
+    CPXsetintparam(cplexEnv(), CPX_PARAM_INTSOLLIM, num);
+  }
+
+  void CplexBase::symmetryBreaking(int limit) {
+    CPXsetintparam(cplexEnv(), CPX_PARAM_SYMMETRY, limit);
+  }
+
   void CplexBase::_messageLevel(MessageLevel level) {
     switch (level) {
     case MESSAGE_NOTHING:

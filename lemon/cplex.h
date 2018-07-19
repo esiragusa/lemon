@@ -185,6 +185,9 @@ namespace lemon {
     void write(std::string file, std::string format = "MPS") const {}
 #endif
 
+    void timeout(double seconds);
+    void solutionsLimit(int num);
+    void symmetryBreaking(int level);
   };
 
   /// \brief Interface for the CPLEX LP solver
